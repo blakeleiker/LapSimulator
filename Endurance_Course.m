@@ -1,16 +1,17 @@
 %2014 Endurance Course 
-%Breaks the course up into a series of constant radius turns
-%Slaloms and straights
+% Breaks the course up into a series of constant radius turns,
+% slaloms, and straights
 
-%3 x N Matrix
+% 3 x N Matrix
 %
-% R  theta  "a"    (Radius of turn (ft), degrees, identifier)
-% D  #      "sl"   (Distance between cones (ft), number of cones, identifier)
-% L  0      "sf"   (Length (ft), placeholder, identifier)
+% R  theta  1    (Radius of turn (ft), degrees, identifier)
+% D  #      2   (Distance between cones (ft), number of cones, identifier)
+% L  0      3   (Length (ft), placeholder, identifier)
 
-%%defining track
-%start is first straight near track entrance
-%if theta is negative, left turn; positive = right turn
+%% Define track
+% start is first straight near track entrance
+% if theta is negative, left turn; positive = right turn
+% 1 -> arc; 2 -> slalom; 3 -> straight
 track =[267.65  0        3;...
         53.76   -97.946  1;...
         8.47    0        3;...
@@ -71,16 +72,17 @@ track =[267.65  0        3;...
         55.91   -67.134  1;]; 
 
 %% Color Change Plot
-clf
-x = -10:.05:10;
-y = tan(x);
-z = zeros(size(x));
-v = sin(5*x);
-col = v;  % This is the color, vary with x in this case.
-surface([x;x],[y;y],[z;z],[col;col],...
-        'facecol','no',...
-        'edgecol','interp',...
-        'linew',3);
+% I have no idea why this is here or what the point of this is
+% clf
+% x = -10:.05:10;
+% y = tan(x);
+% z = zeros(size(x));
+% v = sin(5*x);
+% col = v;  % This is the color, vary with x in this case.
+% surface([x;x],[y;y],[z;z],[col;col],...
+%         'facecol','no',...
+%         'edgecol','interp',...
+%         'linew',3);
         
         
             

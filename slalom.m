@@ -49,7 +49,7 @@ elseif mod(num,2) == 1
     dy = 0;
 end
 
-car_direction = vi / abs(vi);
+car_direction = vi / abs(vi); % rank deficient?
 
 vo = vi;
 xo = xi + d*(num-1)*car_direction + dy*[-vi(2), vi(1)]/norm([-vi(2), vi(1)]);

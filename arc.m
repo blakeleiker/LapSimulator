@@ -3,22 +3,22 @@ function [ t_arc, xo, vo ] = arc( xi, vi, r, theta, car  )
 % function mean for use in lap sim which simulates a constant radius arc.
 %
 % INPUTS:
-% xo - [ft, ft] intital position vector
-% vo - [ft/s, ft/s] initial velocity vector
+% xi - [ft, ft] intital position vector
+% vi - [ft/s, ft/s] initial velocity vector
 % r - [ft] arc radius
 % theta - [degrees] angle of arc
 % car - struct containing car parameters
 %
 % OUTPUTS: 
 % xo - [ft, ft] final position vector
-% vi - [ft/s, ft/s] final velocity vector
+% vo - [ft/s, ft/s] final velocity vector
 % t_arc - [s] time elapsed during arc
 
 V = sqrt(car.g_max*32.174*r); %[ft/s] (tangential velocity of the center of mass)
 
 s = pi*r*2; %[ft] (total distance traveled around circle)
 
-t_arc = s/V; %[s]
+t_arc = double(s/V); %[s]
 
 %% Calculate final velocity and position
 
