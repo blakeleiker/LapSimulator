@@ -54,10 +54,10 @@ for i = 1:length(t)
 end
 
 d = cumtrapz(t,v);
-figure(2)
-plot(t, d)
-title('displacement v time')
-hold on;
+% figure(2)
+% plot(t, d)
+% title('displacement v time')
+% hold on;
 
 %% Calculate time
 
