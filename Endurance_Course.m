@@ -4,7 +4,7 @@
 
 % 3 x N Matrix
 %
-% R  theta  1    (Radius of turn (ft), degrees, identifier)
+% R  theta  1   (Radius of turn (ft), degrees, identifier)
 % D  #      2   (Distance between cones (ft), number of cones, identifier)
 % L  0      3   (Length (ft), placeholder, identifier)
 

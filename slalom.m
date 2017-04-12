@@ -18,7 +18,7 @@ function [ t_slalom, xo, vo, car_position_o ] = slalom( xi, vi, d, num, car, car
 % car_position_o = [string] if the car ends the slalom above the cone -
 %                  'above'; if the car ends below the car - 'below'
 
-R = 0.5*car.tf/12 + 0.5*4.5/12 + 3/12; %[in] radius of sine wave, equal to 1/2 track + 1/2 tire + 1/2 cone
+R = (0.5*car.tf + 0.5*4.5 + 3)/12; %[in] radius of sine wave, equal to 1/2 track + 1/2 tire + 1/2 cone
 
 x = linspace(0, (num-1)*d, 100);
 y = R*cos(pi/d*x);
