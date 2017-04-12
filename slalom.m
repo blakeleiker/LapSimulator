@@ -31,12 +31,20 @@ r = r(1);
 
 v = sqrt( car.g_max*32.174 * r ); %[ft/s] tangential velocity along curve
 
-t_slalom = s(length(x))/12/v;
+t_slalom = double(s(length(x))/12/v);
 
 if strcmp(car_position_i,'above')
-    car_position_o = 'below';
+    if mod(num,2) == 0;
+        car_position_o = 'below';
+    else
+        car_position_o = 'above';
+    end
 elseif strcmp(car_position_i,'below')
-    car_position_o = 'above';
+    if mod(num,2) == 0;
+        car_position_o = 'above';
+    else
+        car_position_o = 'below';
+    end
 end
 
 if mod(num,2) == 0
@@ -49,7 +57,7 @@ elseif mod(num,2) == 1
     dy = 0;
 end
 
-car_direction = vi / abs(vi); % rank deficient?
+car_direction = vi / abs(vi); % rank deficient when vi == 0
 
 vo = vi;
 xo = xi + d*(num-1)*car_direction + dy*[-vi(2), vi(1)]/norm([-vi(2), vi(1)]);

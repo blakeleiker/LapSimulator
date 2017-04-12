@@ -8,50 +8,13 @@
 
 car = car_struct();
 
-Krr = car.spring_rate_rear*car.MR^2;
-Krf = car.spring_rate_front*car.MR^2;
-
-
-%% Calculate track width ratio 
-
-tf = 48;
-
-syms tr_sym
-
-kf = 12*Krf*tf^2/2;
-kr = 12*Krr*tr_sym^2/2;
-
-H = car.h + (car.rc_front-car.rc_rear)*0.53 - car.rc_front;
-
-eq = tf/tr_sym == 0.53/0.47 * (H*kf/(kf+kr) + 0.47*car.rc_front) / (H*kr/(kf+kr) + 0.53*car.rc_rear);
-
-tr = vpa(solve(eq, tr_sym));
-if length(tr) ~= 1
-    tr = tr(2);
-end
-tftr_ratio = tf/tr;
-
-kr = subs(kr, tr_sym, tr);
-%% Calculate front and rear lateral load transfers (per g of acceleration)
-
-WfAy = car.W/tf * ( H*kf/(kf+kr) + 0.47 * car.rc_front ); %[lb/g]
-WrAy = car.W/tr * ( H*kr/(kf+kr) + 0.53 * car.rc_rear ); %[lb/g]
-
-%% Calculate maximum lateral acceleration
-
-g_max = g_calc(car, WfAy, WrAy, 44);
-
-car.tf = tf;
-car.tr = tr;
-car.g_max = g_max; 
-
 %% Simulate 2014 Endurance Course Lap
 
 run('Endurance_Course.m');
 
 track_time = 0;
 x = [0,0];
-v = [0,0];
+v = [1,0];
 car_position = 'above';
 for i = 1:length(track)
     
@@ -71,11 +34,11 @@ for i = 1:length(track)
         x = xo;
         v = vo;
     elseif track(i,3) == 3  % straight
-%         L = track(i,1);
-%         [t_straight, xo, vo] = straight(x, v, car, L);
-%         track_time = track_time+t_straight;
-%         x = xo;
-%         v = vo;
+        L = track(i,1);
+        [t_straight, xo, vo] = straight(x, v, car, L);
+        track_time = track_time+t_straight;
+        x = xo;
+        v = vo;
     end
     
 end

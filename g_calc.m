@@ -46,7 +46,7 @@ while abs(g - g1) > 0.001
     
     g1 = 0.7*(FY_fl+FY_fr+FY_rl+FY_rr)/car.W; %Assumes that only 70% of the forces reported by the TTC are actually achieved.
     
-    g = (g+g1)/2;
+    g = double((g+g1)/2);
     
 end
 
