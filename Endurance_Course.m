@@ -12,6 +12,9 @@
 % start is first straight near track entrance
 % if theta is negative, left turn; positive = right turn
 % 1 -> arc; 2 -> slalom; 3 -> straight
+
+global track; 
+
 track =[267.65  0        3;...
         53.76   -97.946  1;...
         8.47    0        3;...

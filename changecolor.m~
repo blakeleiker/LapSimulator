@@ -1,0 +1,7 @@
+function [ ] = changecolor( ~,~,fig )
+% function meant to change the text box color as soon as 
+
+fig.W_box.BackgroundColor = 'yellow';
+
+end
+
