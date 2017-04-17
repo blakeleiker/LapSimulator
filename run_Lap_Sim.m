@@ -1,12 +1,11 @@
-function [ ] = run_Lap_Sim( ~,~,car )
+function [ ] = run_Lap_Sim( ~,~ )
 
-global laptime track;
+global laptime track car;
 
 %% Simulate 2014 Endurance Course Lap
 
-if ~exist('track','var')
-    run('Endurance_Course.m');
-end
+run('Endurance_Course.m');
+
 
 track_time = 0;
 x = [0,0];
