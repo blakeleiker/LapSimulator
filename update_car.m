@@ -2,7 +2,7 @@ function [ ] = update_car(varargin)
 
 global car;
 
-fig = guidata(gcf)
+fig = guidata(gcf);
 
 %% update properties from edit box inputs
 car.W = str2double(fig.ed(1).String);
@@ -43,7 +43,7 @@ set(fig.ed(:),'BackgroundColor','white');
 
 %% Output to message box
 
-fig.message.String = {'Car Updated';fig.message.String};
+fig.message.String = ['Car Updated';fig.message.String];
 
 end
 

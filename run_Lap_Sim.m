@@ -38,7 +38,11 @@ for i = 1:length(track)
     
 end
 
-fprintf('Track Time: %0.2f seconds\n', track_time)
+%% output results
+
+fig = guidata(gcf); %retrieve figure data
+t = sprintf('Track Time: %0.2f seconds', track_time);
+fig.message.String = [t;fig.message.String];
 
 laptime = track_time;
 
