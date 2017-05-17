@@ -29,6 +29,12 @@ switch h
         fig.ed(11).BackgroundColor = color;
     case fig.ed(12)
         fig.ed(12).BackgroundColor = color;
+    case fig.ed(13)
+        fig.ed(13).BackgroundColor = color;
+    case fig.ed(14)
+        fig.ed(14).BackgroundColor = color;
+    case fig.ed(15)
+        fig.ed(15).BackgroundColor = color;
 end
         
 end

@@ -4,15 +4,23 @@ global car;
 
 fig = guidata(gcf);
 
-%% update properties from edit box inputs
+%% update properties from edit box inputs 
+% currently assumes that all edit box inputs were valid doubles
 car.W = str2double(fig.ed(1).String);
+car.l = str2double(fig.ed(2).String);
+car.h = str2double(fig.ed(3).String);
+car.rc_front = str2double(fig.ed(4).String);
+car.rc_rear = str2double(fig.ed(5).String);
+car.W1 = str2double(fig.ed(6).String);
+car.k1 = str2double(fig.ed(7).String);
+car.MR = str2double(fig.ed(8).String);
+car.damper_rate = str2double(fig.ed(9).String);
+car.tf = str2double(fig.ed(10).String);
 
 %% update dependent properties
 
 Krr = car.spring_rate_rear*car.MR^2;
 Krf = car.spring_rate_front*car.MR^2;
-
-%car.tf = 48; %[in] defined front track
 
 syms tr_sym
 

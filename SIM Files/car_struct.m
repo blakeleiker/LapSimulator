@@ -30,8 +30,8 @@ car.P_W = 0.7*60/car.W; %[HP/lb] power to weight ratio (weight should be full st
 
 
 %% Define front and rear spring rates based upon desired natural frequencies
-w_front_desired = 4; %[Hz] (desired natural frequency at front of car)
-w_rear_desired = 4.25; %[Hz] (desired natural frequency at rear of car)
+w_front_desired = 3.75; %[Hz] (desired natural frequency at front of car)
+w_rear_desired = 4; %[Hz] (desired natural frequency at rear of car)
 
 car.spring_rate = 300;  %[lb/in] initial spring rate guess before iteration
 w_front = Natural_Frequency_Calc(2, car);
@@ -53,7 +53,7 @@ end
 Krr = car.spring_rate_rear*car.MR^2;
 Krf = car.spring_rate_front*car.MR^2;
 
-car.tf = 48; %[in] defined front track
+car.tf = 48; %[in] front track
 
 syms tr_sym
 
